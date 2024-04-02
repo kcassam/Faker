@@ -249,7 +249,7 @@ class Miscellaneous extends Base
      */
     public static function md5()
     {
-        return md5(self::numberBetween());
+        return md5(random_bytes(16));
     }
 
     /**
@@ -259,7 +259,7 @@ class Miscellaneous extends Base
      */
     public static function sha1()
     {
-        return sha1(self::numberBetween());
+        return sha1(random_bytes(20));
     }
 
     /**
@@ -269,7 +269,7 @@ class Miscellaneous extends Base
      */
     public static function sha256()
     {
-        return hash('sha256', self::numberBetween());
+        return hash('sha256', random_bytes(32));
     }
 
     /**
