@@ -243,13 +243,29 @@ class Miscellaneous extends Base
     }
 
     /**
+     * Return a string representing a big number, which size is $n * 4 bytes ($n * 32 bits)
+     *
+     * @param int $n multiplier for numberBetween.
+     *
+     * @return string
+     *
+     * @example "38921908753913698485999935526730716"
+     */
+    public static function multiplyNumberBetweenNTimes($n)
+    {
+        return array_reduce(range(1, $n), static function ($carry, $item) {
+            return bcmul($carry, self::numberBetween());
+        }, '1');
+    }
+
+    /**
      * @example 'cfcd208495d565ef66e7dff9f98764da'
      *
      * @return string
      */
     public static function md5()
     {
-        return md5(random_bytes(16));
+        return md5(self::multiplyNumberBetweenNTimes(128 / 32));
     }
 
     /**
@@ -259,7 +275,7 @@ class Miscellaneous extends Base
      */
     public static function sha1()
     {
-        return sha1(random_bytes(20));
+        return sha1(self::multiplyNumberBetweenNTimes(160 / 32));
     }
 
     /**
@@ -269,7 +285,7 @@ class Miscellaneous extends Base
      */
     public static function sha256()
     {
-        return hash('sha256', random_bytes(32));
+        return hash('sha256', self::multiplyNumberBetweenNTimes(256 / 32));
     }
 
     /**
