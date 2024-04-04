@@ -24,8 +24,7 @@ final class MiscellaneousTest extends TestCase
 
     public function testMd5ExpectedSeed(): void
     {
-        $this->faker->seed(252);
-        self::assertEquals('fa72146b50f73db08c92053d1fc5f263', $this->faker->md5());
+        self::assertEquals('7c2a5276141e81fdf60015689c53d8a1', $this->faker->md5('seed_123'));
     }
 
     public function testSha1(): void
@@ -35,8 +34,7 @@ final class MiscellaneousTest extends TestCase
 
     public function testSha1ExpectedSeed(): void
     {
-        $this->faker->seed(252);
-        self::assertEquals('5ecb7a1b22291b6b15e534852e03ac72f4187a48', $this->faker->sha1());
+        self::assertEquals('2d37797087b5130d79e51a08fa7f1cf7678c70ab', $this->faker->sha1('seed_123'));
     }
 
     public function testSha256(): void
@@ -46,8 +44,7 @@ final class MiscellaneousTest extends TestCase
 
     public function testSha256ExpectedSeed(): void
     {
-        $this->faker->seed(252);
-        self::assertEquals('ea98b35136e020d9dd9b594252d9263021d1742da2bd4c8592b854c62b4122c2', $this->faker->sha256());
+        self::assertEquals('a5aa26c454007319b3458f9a9162822c8c1ac5394c4124186b4d54703d9ac3cd', $this->faker->sha256('seed_123'));
     }
 
     public function testLocale(): void
